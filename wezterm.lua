@@ -133,7 +133,7 @@ end
 
 function scheme_for_appearance(appearance)
   if appearance:find 'Dark' then
-    return 'Dracura+'
+    return 'nord'
   else
     return 'Builtin Solarized Light'
   end
@@ -234,6 +234,10 @@ config.colors = {
   },
 }
 
+-- disable default key bindings
+config.disable_default_key_bindings = true
+-- load `keybinds.lua`
+local keybind = require 'keybinds'
 
 -- Leader key
 config.leader = {
@@ -243,42 +247,7 @@ config.leader = {
 }
 
 -- Key bindings
-config.keys = {
-  {
-    key = 'x',
-    mods = 'LEADER',
-    action = act.ActivateCopyMode,
-  },
-  {
-    key = ',',
-    mods = 'SUPER',
-    action = act.QuickSelect,
-  },
-  {
-    key = ',',
-    mods = 'LEADER',
-    action = act.SplitHorizontal {domain = "CurrentPaneDomain"},
-  },
-  {
-    key = '.',
-    mods = 'LEADER',
-    action = act.SplitVertical {domain = "CurrentPaneDomain"},
-  },
-  {
-    key = ']',
-    mods = 'SUPER',
-    action = act.ActivatePaneDirection 'Right',
-  },
-  {
-    key = '[',
-    mods = 'SUPER',
-    action = act.ActivatePaneDirection 'Left',
-  },  
-  {
-    key = 'w',
-    mods = 'CMD',
-    action = act.CloseCurrentPane { confirm = true },
-  },
-}
+config.keys = keybind.keys
+config.key_tables = keybind.key_tables
 
 return config
