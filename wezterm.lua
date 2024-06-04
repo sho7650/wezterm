@@ -135,7 +135,7 @@ function scheme_for_appearance(appearance)
   if appearance:find 'Dark' then
     return 'nord'
   else
-    return 'Builtin Solarized Light'
+      return 'Light White (terminal.sexy)'
   end
 end
 
