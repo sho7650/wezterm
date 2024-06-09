@@ -96,6 +96,7 @@ return {
     { key = 'Z', mods = 'SHIFT|CTRL', action = act.TogglePaneZoomState },
     { key = '[', mods = 'SUPER', action = act.ActivatePaneDirection 'Left' },
     { key = '[', mods = 'SHIFT|SUPER', action = act.ActivateTabRelative(-1) },
+    { key = '[', mods = 'LEADER', action = act.ActivateCopyMode },
     { key = ']', mods = 'SUPER', action = act.ActivatePaneDirection 'Right' },
     { key = ']', mods = 'SHIFT|SUPER', action = act.ActivateTabRelative(1) },
     { key = ']', mods = 'LEADER', action = act.PasteFrom 'Clipboard' },    
@@ -158,7 +159,7 @@ return {
     copy_mode = {
       { key = 'Tab', mods = 'NONE', action = act.CopyMode 'MoveForwardWord' },
       { key = 'Tab', mods = 'SHIFT', action = act.CopyMode 'MoveBackwardWord' },
-      { key = 'Enter', mods = 'NONE', action = act.CopyMode 'MoveToStartOfNextLine' },
+      { key = 'Enter', mods = 'NONE', action = act.Multiple{ { CopyTo =  'ClipboardAndPrimarySelection' }, { CopyMode =  'Close' } } },
       { key = 'Escape', mods = 'NONE', action = act.CopyMode 'Close' },
       { key = 'Space', mods = 'NONE', action = act.CopyMode{ SetSelectionMode =  'Cell' } },
       { key = '$', mods = 'NONE', action = act.CopyMode 'MoveToEndOfLineContent' },
