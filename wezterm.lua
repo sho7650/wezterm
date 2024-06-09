@@ -133,7 +133,7 @@ end
 
 function scheme_for_appearance(appearance)
   if appearance:find 'Dark' then
-    return 'nord'
+      return 'Nightfly (Gogh)'
   else
       return 'Light White (terminal.sexy)'
   end
